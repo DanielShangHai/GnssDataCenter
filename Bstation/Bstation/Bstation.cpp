@@ -1,10 +1,10 @@
-// bstration.cpp : 定义控制台应用程序的入口点。
+// Bstation.cpp : 定义控制台应用程序的入口点。
 //
 
 #include "stdafx.h"
 #include <winsock2.h>  
-#include <string>
-void ErrorHandling(char*message);
+void ErrorHandling(char * msg);
+
 
 class  Bstation
 {
@@ -16,24 +16,23 @@ public:
 	void skyshowBstation();          //基站数据显示（星空图）
 	void saveBstation();            //基站数据保存
 	void RmanagementBstation();    //基站远程管理
-
 private:
-	SOCKET hServSock, hClntSock;          //设置客户端套接字和服务端套接字
+	SOCKET ServSock, hClntSock;//设置服务端和客户端的套接字
 	int EWorkMode;
 	int ErrorCode;
-	/*string ip;*/
-	const char * IP;//定义IP地址
+	const char * IP;//设置IP
 	int iport;//差分转接端口
 	int port;//数据接入端口
+
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
 	return 0;
 }
 
-void ErrorHandling(char*message)
+void ErrorHandling(char *msg)
 {
-	fputs(message, stderr);
+	fputs(msg, stderr);
 	fputc('\n', stderr);
 	exit(1);
 }
