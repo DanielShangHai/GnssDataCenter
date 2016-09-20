@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include <winsock2.h>  
+#include <string>
 void ErrorHandling(char*message);
 
 class  Bstation
@@ -20,6 +21,8 @@ private:
 	SOCKET hServSock, hClntSock;          //设置客户端套接字和服务端套接字
 	int EWorkMode;
 	int ErrorCode;
+	/*string ip;*/
+	const char * IP;//定义IP地址
 	int iport;//差分转接端口
 	int port;//数据接入端口
 };
