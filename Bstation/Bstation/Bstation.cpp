@@ -3,6 +3,8 @@
 
 #include "stdafx.h"
 #include <winsock2.h>  
+#include <string>  
+using namespace std;
 void ErrorHandling(char * msg);
 
 
@@ -20,12 +22,12 @@ private:
 	SOCKET ServSock, hClntSock;//设置服务端和客户端的套接字
 	int EWorkMode;
 	int ErrorCode;
-	WSADATA wsaData;
 	SOCKADDR_IN servAdr;       
 	HANDLE hSndThread, hRcvThread;//定义接收数据线程和发送数据线程
 	const char * IP;//设置IP
 	int iport;//差分转接端口
 	int port;//数据接入端口
+	string Bname;//基站名字
 
 };
 int _tmain(int argc, _TCHAR* argv[])
