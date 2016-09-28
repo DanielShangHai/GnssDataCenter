@@ -16,6 +16,7 @@ unsigned WINAPI RecvMsg(void * arg);
 class  Bstation
 {
 public:
+	Bstation(){}
 	Bstation(int it, string be) :iport(it), Bname(be)
 	{
 		it = 4000;
@@ -39,7 +40,7 @@ private:
 	int port;//数据接入端口
 	string Bname;//基站名字
 	SOCKADDR_IN servAdr, clntAdr;
-};
+}BCaccept, BCsent;
 void Bstation::acceptBstation()//只作为Server的编程
 {
 	WSADATA wsaData;
@@ -64,8 +65,8 @@ void Bstation::acceptBstation()//只作为Server的编程
 	{
 		clntAdrSz = sizeof(clntAdr);
 		hClntSock = accept(hServSock, (SOCKADDR*)&clntAdr, &clntAdrSz);
-		hRcvThread =
-			(HANDLE)_beginthreadex(NULL, 0, RecvMsg, (void*)&hClntSock, 0, NULL);
+		BCaccept.hRcvThread =
+			(HANDLE)_beginthreadex(NULL, 0, RecvMsg, (void*)&hClntSock, 0, NULL);//改动的
 		WaitForSingleObject(hRcvThread, INFINITE);
 	}
 	closesocket(hServSock);
