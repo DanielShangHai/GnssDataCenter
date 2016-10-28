@@ -15,6 +15,12 @@ void ErrorHandling(char *message);
 #define BUF_SIZE 1024
 
 DWORD recvBytes;
+int RemoteLen;
+typedef struct tagPER_HANDLE_DATA
+{
+	SOCKET Socket;
+	SOCKADDR_STORAGE ClientAddr;
+}PER_HANDLE_DATA, *LPPER_HANDLE_DATA;
 typedef struct
 {
 	SOCKET hClntSock;  //套接字句柄
@@ -24,6 +30,7 @@ typedef struct
 LPPER_IO_DATA hbInfo, hbInfo1;
 LPWSAOVERLAPPED lpOvLp, lpOvLp1;
 SOCKET hRecvSock1;
+PER_HANDLE_DATA *PerHandleData = NULL;
 unsigned int __stdcall listeningThread(void *param)
 {
 	SOCKET hLisnSock, hRecvSock;
@@ -78,11 +85,8 @@ unsigned int __stdcall listeningThread(void *param)
 void CALLBACK ReadCompRoutine(
 	DWORD dwError, DWORD szRecvBytes, LPWSAOVERLAPPED lpOverlapped, DWORD flags)
 {
-	puts("12");
-	printf("%d\n", hbInfo->wsaBuf.buf);  
 	//怎么提取第二个客户端的套接字
-	/*LPPER_IO_DATA hbInfo1 = (LPPER_IO_DATA)(lpOverlapped->hEvent);   */
-	SOCKET hSock = hRecvSock1;
+	SOCKET hSock = PerHandleData->Socket;
 	LPWSABUF bufInfo = &(hbInfo->wsaBuf);
 	if (szRecvBytes == 0)
 	{
@@ -90,7 +94,7 @@ void CALLBACK ReadCompRoutine(
 		free(lpOverlapped->hEvent); free(lpOverlapped);
 		puts("Client disconnected.....");
 	}
-	else    
+	else
 	{
 		bufInfo->len = szRecvBytes;
 		WSASend(hSock, bufInfo, 1, &recvBytes, 0, lpOverlapped, WriteCompRoutine);//注意
@@ -131,10 +135,12 @@ unsigned int __stdcall listeningThread1(void *param)
 		ErrorHandling("bind() error");
 	if (listen(hLisnSock, 5) == SOCKET_ERROR)
 		ErrorHandling("listen() error");
+	//recvAdrSz = sizeof(recvAdr);
 	recvAdrSz = sizeof(recvAdr);
 	while (1)
 	{
 		SleepEx(100, TRUE);        // alertable等待状态,SleepEx函数的用法
+		//recvAdrSz = sizeof(recvAdr);
 		hRecvSock1 = accept(hLisnSock, (SOCKADDR*)&recvAdr, &recvAdrSz);
 		if (hRecvSock1 == INVALID_SOCKET)
 		{
@@ -143,14 +149,16 @@ unsigned int __stdcall listeningThread1(void *param)
 			else
 				ErrorHandling("accept() error");
 		}
+		PerHandleData = (LPPER_HANDLE_DATA)GlobalAlloc(GPTR, sizeof(PER_HANDLE_DATA));//第一个参数为分配属性(方式)，第二个为分配的字节数
+		//PerHandleData为创建的句柄
+		if (PerHandleData == NULL)
+		{
+			closesocket(hRecvSock1);
+			return 0;
+		}
 		puts("Client connected.....");
-		lpOvLp1 = (LPWSAOVERLAPPED)malloc(sizeof(WSAOVERLAPPED));     
-		memset(lpOvLp1, 0, sizeof(WSAOVERLAPPED));
-		hbInfo1 = (LPPER_IO_DATA)malloc(sizeof(PER_IO_DATA));
-		hbInfo1->hClntSock = (DWORD)hRecvSock1;
-		(hbInfo1->wsaBuf).buf = hbInfo1->buf;     //hbInfo->wsaBuf为接收的数据
-		(hbInfo1->wsaBuf).len = BUF_SIZE;
-		lpOvLp1->hEvent = (HANDLE)hbInfo1;
+		PerHandleData->Socket = hRecvSock1;
+		memcpy(&PerHandleData->ClientAddr, &recvAdr, recvAdrSz);
 	}
 	closesocket(hRecvSock1);
 	closesocket(hLisnSock);

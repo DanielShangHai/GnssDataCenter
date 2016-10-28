@@ -1,14 +1,16 @@
-﻿生成启动时间为 2016/10/27 14:32:03。
-     1>项目“E:\VS程序\监听2个端口转发\监听2个端口转发\监听2个端口转发.vcxproj”在节点 2 上(Build 个目标)。
+﻿生成启动时间为 2016/10/28 9:07:00。
+     1>项目“D:\GnssDataCenter\GnssDataCenter.git\trunk\监听2个端口转发\监听2个端口转发\监听2个端口转发.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\监听2个端口转发.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
          D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\监听2个端口转发.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "监听2个端口转发.cpp"
          监听2个端口转发.cpp
        Link:
-         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\VS程序\监听2个端口转发\Debug\监听2个端口转发.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\VS程序\监听2个端口转发\Debug\监听2个端口转发.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\VS程序\监听2个端口转发\Debug\监听2个端口转发.lib" /MACHINE:X86 Debug\stdafx.obj
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GnssDataCenter\GnssDataCenter.git\trunk\监听2个端口转发\Debug\监听2个端口转发.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GnssDataCenter\GnssDataCenter.git\trunk\监听2个端口转发\Debug\监听2个端口转发.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GnssDataCenter\GnssDataCenter.git\trunk\监听2个端口转发\Debug\监听2个端口转发.lib" /MACHINE:X86 Debug\stdafx.obj
          "Debug\监听2个端口转发.obj"
-         监听2个端口转发.vcxproj -> E:\VS程序\监听2个端口转发\Debug\监听2个端口转发.exe
-     1>已完成生成项目“E:\VS程序\监听2个端口转发\监听2个端口转发\监听2个端口转发.vcxproj”(Build 个目标)的操作。
+         监听2个端口转发.vcxproj -> D:\GnssDataCenter\GnssDataCenter.git\trunk\监听2个端口转发\Debug\监听2个端口转发.exe
+     1>已完成生成项目“D:\GnssDataCenter\GnssDataCenter.git\trunk\监听2个端口转发\监听2个端口转发\监听2个端口转发.vcxproj”(Build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:01.14
+已用时间 00:00:02.34
