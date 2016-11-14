@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GNSSRefDataCenter", "GNSSRefDataCenter\GNSSRefDataCenter.vcxproj", "{75883AD4-DAAB-48A9-93C6-BF792AC2E21E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{584BCDA0-76EB-480C-8DAB-6A9BEBCBFEB9} = {584BCDA0-76EB-480C-8DAB-6A9BEBCBFEB9}
+		{7E714BDB-D878-430D-9763-DDA4C97B8A31} = {7E714BDB-D878-430D-9763-DDA4C97B8A31}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RefStationManagement", "RefStationManagement\RefStationManagement.vcxproj", "{7E714BDB-D878-430D-9763-DDA4C97B8A31}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GnssClient", "GnssClient\GnssClient.vcxproj", "{584BCDA0-76EB-480C-8DAB-6A9BEBCBFEB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75883AD4-DAAB-48A9-93C6-BF792AC2E21E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{75883AD4-DAAB-48A9-93C6-BF792AC2E21E}.Debug|Win32.Build.0 = Debug|Win32
+		{75883AD4-DAAB-48A9-93C6-BF792AC2E21E}.Release|Win32.ActiveCfg = Release|Win32
+		{75883AD4-DAAB-48A9-93C6-BF792AC2E21E}.Release|Win32.Build.0 = Release|Win32
+		{7E714BDB-D878-430D-9763-DDA4C97B8A31}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7E714BDB-D878-430D-9763-DDA4C97B8A31}.Debug|Win32.Build.0 = Debug|Win32
+		{7E714BDB-D878-430D-9763-DDA4C97B8A31}.Release|Win32.ActiveCfg = Release|Win32
+		{7E714BDB-D878-430D-9763-DDA4C97B8A31}.Release|Win32.Build.0 = Release|Win32
+		{584BCDA0-76EB-480C-8DAB-6A9BEBCBFEB9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{584BCDA0-76EB-480C-8DAB-6A9BEBCBFEB9}.Debug|Win32.Build.0 = Debug|Win32
+		{584BCDA0-76EB-480C-8DAB-6A9BEBCBFEB9}.Release|Win32.ActiveCfg = Release|Win32
+		{584BCDA0-76EB-480C-8DAB-6A9BEBCBFEB9}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
