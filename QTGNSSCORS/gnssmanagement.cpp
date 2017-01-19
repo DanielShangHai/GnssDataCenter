@@ -41,6 +41,7 @@ void GnssManagement::init()
     TuserD ->setIcon(0,icon);
     clientmanage=new ClientManage(this);
     clientmanage->listen(QHostAddress::Any,6000);//接收数据端口函数
+    clientmanage->SetSourceTable(&m_SourceTable);
 }
 void GnssManagement::createItemMenu()
 {

@@ -41,7 +41,7 @@ ptrBaseStation DifferSourceTable::GetSourceBaseStation(QString sourceType)
     }
     else
     {
-     //  qDebug()<< "GetSourceBaseStation defeat";
+       qDebug()<< "GetSourceBaseStation defeat";
         return NULL;
     }
 }

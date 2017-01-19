@@ -12,8 +12,9 @@ public:
     explicit ClientManage(QObject *parent = 0);
     ~ClientManage();
     NewClient *CurrentClient;
-    DifferSourceTable m_SourceTable;
-    bool LinkClientAndBaseSource(DifferSourceTable& sourcetable,NewClient *client,QString sourcetype);
+    DifferSourceTable* m_lpSourceTable;
+    bool LinkClientAndBaseSource(NewClient *client,QString sourcetype);
+    void SetSourceTable(DifferSourceTable* lpTable);
 protected:
     void incomingConnection(qintptr handle);
 private slots:
